@@ -10,7 +10,7 @@ resource "hcloud_ssh_key" "ansible-test-ssh-key" {
 }
 
 # Create a server
-resource "hcloud_server" "johann-test-vm" {
+resource "hcloud_server" "ansible-test-johann" {
   name = "ansible-test-instance"
   image = "ubuntu-20.04"
   server_type = "cx11"
