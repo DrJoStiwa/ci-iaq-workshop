@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Lint Ansible Playbook') {
             steps {
-              // ansible lint hinzufügen
+              sh 'ansible-lint install-hero-app.yml'
             }
         }
         stage('Start Test VM') {
@@ -29,12 +29,6 @@ pipeline {
         stage('Run Testinfra Tests') {
             steps {
               sh "py.test --connection=ansible --ansible-inventory inventory/test.hcloud.yml --hosts='ansible://ansible-test-johann' --force-ansible -v test/*.py" // hostnamen anpassen
-            }
-        }
-
-        stage('Run Ansible Lint') {
-            steps {
-              sh 'ansible-lint install-hero-app.yml'
             }
         }
     }
