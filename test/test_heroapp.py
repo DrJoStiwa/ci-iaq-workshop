@@ -11,9 +11,10 @@ def test_docker_service_is_running(host):
 
 def test_heroapp_container_is_running(host):
     # testen, ob der container mit dem Namen "my-hero-app" läuft
-    my-hero-app = host.docker("my-hero-app")
-    assert nginx.is_running
+    myheroapp = host.docker("my-hero-app")
+    assert myheroapp.is_running
 
 def test_heroapp_is_available_on_port_80(host):
     # testen, ob auf tcp://0.0.0.0:80 gehorcht wird
-    assert host.socket("tcp://0.0.0.0:80").is_listening
+    myheroapp = host.socket("tcp://0.0.0.0:80")
+    assert myheroapp.is_listening
