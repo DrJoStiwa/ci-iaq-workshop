@@ -31,6 +31,12 @@ pipeline {
               sh "py.test --connection=ansible --ansible-inventory inventory/test.hcloud.yml --hosts='ansible://ansible-test-johann' --force-ansible -v test/*.py" // hostnamen anpassen
             }
         }
+
+        stage('Run Ansible Lint') {
+            steps {
+              sh 'ansible-lint install-hero-app.yml'
+            }
+        }
     }
     post {
         always {
