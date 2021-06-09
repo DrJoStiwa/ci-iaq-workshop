@@ -25,7 +25,7 @@ pipeline {
     post {
         always {
           dir('ci-test-vm') {
-            sh 'terraform destroy -auto-approve-var="hcloud_token=${HCLOUD_TOKEN}"'
+            sh 'terraform destroy -auto-approve -var="hcloud_token=${HCLOUD_TOKEN}"'
           }
          }
     }
