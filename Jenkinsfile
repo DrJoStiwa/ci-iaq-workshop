@@ -10,7 +10,7 @@ pipeline {
             steps {
               dir('ci-test-vm') {
                 sh 'terraform init'
-                  sh 'terraform apply -auto-approve -var="hcloud_token=${HCLOUD_TOKEN}"'
+                sh 'terraform apply -auto-approve -var="hcloud_token=${HCLOUD_TOKEN}"' 
               }
             }
         }
