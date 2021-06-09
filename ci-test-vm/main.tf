@@ -5,18 +5,18 @@ provider "hcloud" {
 
 # Create a new SSH key
 resource "hcloud_ssh_key" "ansible-test-ssh-key" {
-  name = "Ansible Test VM SSH Key"
+  name = "Johann Test VM SSH Key"
   public_key = file(var.ssh_key)
 }
 
 # Create a server
-resource "hcloud_server" "ansible-test-vm" {
+resource "hcloud_server" "johann-test-vm" {
   name = "ansible-test-instance"
   image = "ubuntu-20.04"
   server_type = "cx11"
   location = "nbg1"
   ssh_keys = [
-    "Ansible Test VM SSH Key"
+    "Johann Test VM SSH Key"
   ]
 
   provisioner "local-exec" {
