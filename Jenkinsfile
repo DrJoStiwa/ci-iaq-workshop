@@ -15,7 +15,7 @@ pipeline {
             steps {
               dir('ci-test-vm') {
                 sh 'terraform init'
-                sh 'terraform apply -auto-approve -var="hcloud_token=${HCLOUD_TOKEN}"'
+                sh 'terraform apply -auto-approve -var="hcloud_token=${HCLOUD_TOKEN}"' 
               }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
 
         stage('Run Testinfra Tests') {
             steps {
-              sh "py.test --connection=ansible --ansible-inventory inventory/test.hcloud.yml --hosts='ansible://ansible-test-instance' --force-ansible -v test/*.py"
+              sh "py.test --connection=ansible --ansible-inventory inventory/test.hcloud.yml --hosts='ansible://ansible-test-johann' --force-ansible -v test/*.py" // hostnamen anpassen
             }
         }
     }
